@@ -32,8 +32,9 @@ e535dac (HEAD -> master) Initial commit: add README.md
 ## Часть 2: Создание репозитория на GitHub
 
 
-```curl -H "Authorization: token ***" https://api.github.com/user/repos -d '{"name":"lab002","private":fa>```
-```git remote add origin https://github.com/gest475/lab002.git```
+```curl -H "Authorization: token ***" https://api.github.com/user/repos -d '{"name":"lab002","private":fa>
+git remote add origin https://github.com/gest475/lab002.git
+```
 
 ```git remote -v```
 *Вывод:*
@@ -53,24 +54,27 @@ branch 'main' set up to track 'origin/main'.
 
 ## Часть 3: Добавление .gitignore и исходного кода
 
-`cat > .gitignore <<EOF
+```cat > .gitignore <<EOF
 *build*/
 *install*/
 *.swp
 .idea/
 EOF
 git add .gitignore
-git commit -m "Add .gitignore"`
+```
+`git commit -m "Add .gitignore"`
 *Вывод:*
 [main b4ea0b1] Add .gitignore
 1 file changed, 4 insertions(+)
 create mode 100644 .gitignore
-`mkdir sources include examples`
-`cat > sources/print.cpp <<EOF`
-`cat > include/print.hpp <<EOF`
-`cat > examples/example1.cpp <<EOF`
-`cat > examples/example2.cpp <<EOF`
-`git add .`
+```mkdir sources include examples
+cat > sources/print.cpp <<EOF
+cat > include/print.hpp <<EOF
+cat > examples/example1.cpp <<EOF
+cat > examples/example2.cpp <<EOF
+git add .
+```
+
 `git commit -m "added sources"`
 *Вывод:*
 [main 5c4334e] added sources
@@ -91,29 +95,37 @@ b4ea0b1..5c4334e main -> main
 ## Часть 4
 ### Part I - Hello World программа
 `cd ~/workspace && mkdir -p homework && cd homework`
+
 `git clone https://github.com/gest475/lab002.git hello_world`
 *Вывод:*
 Cloning into 'hello_world'...
 remote: Enumerating objects: 15, done.
 remote: Total 15 (delta 1), reused 14 (delta 0)
 Receiving objects: 100% (15/15), done.
-`cat > hello_world.cpp <<EOF`
-`git add hello_world.cpp`
+
+```
+cat > hello_world.cpp <<EOF
+git add hello_world.cpp
+```
 `git commit -m "Initial commit: Hello World program with bad style"`
 *Вывод:*
 [main 83ee00b] Initial commit: Hello World program with bad style
 1 file changed, 8 insertions(+)
 create mode 100644 hello_world.cpp
+
 `git push`
 *Вывод:*
 Enumerating objects: 4, done.
 To https://github.com/gest475/lab002.git
 5c4334e..83ee00b main -> main
+
 `cat > hello_world.cpp <<EOF`
+
 `git commit -am "Add user input and greeting"`
 *Вывод:*
 [main fe7a119] Add user input and greeting
 1 file changed, 4 insertions(+), 1 deletion(-)
+
 `git push`
 *Вывод:*
 To https://github.com/gest475/lab002.git
@@ -130,7 +142,9 @@ Switched to a new branch 'patch1'
 main
 
 patch1
+
 `cat > hello_world.cpp <<EOF`
+
 `git commit -am "Fix code style: remove using namespace std"`
 *Вывод:*
 [patch1 fa07092] Fix code style: remove using namespace std
@@ -145,6 +159,7 @@ To https://github.com/gest475/lab002.git
 branch 'patch1' set up to track 'origin/patch1'.
 
 `cat > hello_world.cpp <<EOF`
+
 `git commit -am "Add comments to code"`
 *Вывод:*
 [patch1 ed7b02c] Add comments to code
@@ -159,9 +174,11 @@ fa07092..ed7b02c patch1 -> patch1
 *Вывод:*
 Switched to branch 'main'
 Your branch is up to date with 'origin/main'.
+
 `git pull`
 *Вывод:*
 Already up to date.
+
 `git branch -d patch1`
 *Вывод:*
 warning: deleting branch 'patch1' that has been merged to
@@ -173,7 +190,9 @@ Deleted branch patch1 (was ed7b02c).
 `git checkout -b patch2`
 *Вывод:*
 Switched to a new branch 'patch2'
+
 `cat > hello_world.cpp <<EOF`
+
 `git commit -am "Apply Mozilla code style"`
 *Вывод:*
 [patch2 4b0d5a0] Apply Mozilla code style
@@ -186,10 +205,13 @@ To https://github.com/gest475/lab002.git
 
 [new branch] patch2 -> patch2
 branch 'patch2' set up to track 'origin/patch2'.
+
 `git checkout main`
 *Вывод:*
 Switched to branch 'main'
+
 `cat > hello_world.cpp <<EOF`
+
 `git commit -am "Add comment in main branch"`
 *Вывод:*
 [main 645afa3] Add comment in main branch
@@ -207,9 +229,11 @@ Switched to branch 'patch2'
 `git rebase origin/main`
 *Вывод:*
 Successfully rebased and updated refs/heads/patch2.
+
 `git push --force-with-lease origin patch2`
 *Вывод:*
 469ae46...c03850c patch2 -> patch2 (forced update)
+
 `git checkout main`
 *Вывод:*
 Switched to branch 'main'
@@ -217,6 +241,7 @@ Switched to branch 'main'
 `git pull`
 *Вывод:*
 Already up to date.
+
 `git branch -d patch2`
 *Вывод:*
 warning: deleting branch 'patch2' that has been merged to
