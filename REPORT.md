@@ -5,39 +5,43 @@
 
 ### Выполненные команды и их вывод:
 
-`git config --global user.name "gest475"`
-`git config --global user.email "maryuye@mail.ru"`
-`mkdir -p workspace/lab02 && cd workspace/lab02`
-`git init`
-`git status`
+```git config --global user.name "gest475"
+git config --global user.email "maryuye@mail.ru"
+mkdir -p workspace/lab02 && cd workspace/lab02
+git init
+```
+
+```git status```
 *Вывод:*
 On branch master
 No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 
-`git add README.md`
-`git commit -m "Initial commit: add README.md"`
+```git add README.md```
+
+```git commit -m "Initial commit: add README.md"```
 *Вывод:*
 [master (root-commit) e535dac] Initial commit: add README.md
 1 file changed, 1 insertion(+)
 create mode 100644 README.md
 
-`git log --oneline`
+```git log --oneline```
 *Вывод:*
 e535dac (HEAD -> master) Initial commit: add README.md
 
 ## Часть 2: Создание репозитория на GitHub
 
-```bash
-curl -H "Authorization: token ***" https://api.github.com/user/repos -d '{"name":"lab002","private":fa>```
-`git remote add origin https://github.com/gest475/lab002.git`
-`git remote -v`
+
+```curl -H "Authorization: token ***" https://api.github.com/user/repos -d '{"name":"lab002","private":fa>```
+```git remote add origin https://github.com/gest475/lab002.git```
+
+```git remote -v```
 *Вывод:*
 origin  https://github.com/gest475/lab002.git (fetch)
 origin  https://github.com/gest475/lab002.git (push)
 
-`git branch -M main`
-`git push -u origin main`
+```git branch -M main```
+```git push -u origin main```
 *Вывод:*
 Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
@@ -49,14 +53,14 @@ branch 'main' set up to track 'origin/main'.
 
 ## Часть 3: Добавление .gitignore и исходного кода
 
-`cat > .gitignore <<EOF`
-`*build*/`
-`*install*/`
-`*.swp`
-`.idea/`
-`EOF`
-`git add .gitignore`
-`git commit -m "Add .gitignore"`
+`cat > .gitignore <<EOF
+*build*/
+*install*/
+*.swp
+.idea/
+EOF
+git add .gitignore
+git commit -m "Add .gitignore"`
 *Вывод:*
 [main b4ea0b1] Add .gitignore
 1 file changed, 4 insertions(+)
